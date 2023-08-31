@@ -17,7 +17,7 @@ sizeSlider.onchange = (e) => changeSize(e.target.value);
 resetButton.onclick = () => resetGrid();
 colorPicker.oninput = (e) => setCurrentColor(e.target.value)
 
-function changeSize(size) {colorPicker.oninput = (e) => setCurrentColor(e.target.value)
+function changeSize(size) {
     currentSize = size;
     updateSizeValue(size);
     reloadGrid();

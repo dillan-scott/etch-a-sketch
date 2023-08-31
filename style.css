@@ -62,30 +62,30 @@ main {
 
 button,
 input[type='color'] {
-  transition: transform 0.1s ease-in-out;
-  background: none;
+    transition: transform 0.1s ease-in-out;
+    background: none;
 }
 
 button:hover,
 input[type='color']:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 input[type='color'] {
-  appearance: none;
-  width: 75px;
-  height: 75px;
-  border: none;
+    appearance: none;
+    width: 75px;
+    height: 75px;
+    border: none;
 }
 
 input[type='color']::-webkit-color-swatch-wrapper {
-  padding: 0;
+    padding: 0;
 }
 
 input[type='color']::-webkit-color-swatch {
-  border: none;
-  border-radius: 10px;
-  box-shadow: var(--primary-dark) 0px 3px 15px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--primary-dark) 0px 3px 15px;
 }
 
 .size-value {
