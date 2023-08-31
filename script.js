@@ -1,10 +1,10 @@
-const DEFAULT_COLOR = '#444'
-const DEFAULT_MODE = 'color'
-const DEFAULT_SIZE = 16
+const DEFAULT_COLOR = '#444';
+const DEFAULT_MODE = 'color';
+const DEFAULT_SIZE = 32;
 
-let currentColor = DEFAULT_COLOR
-let currentMode = DEFAULT_MODE
-let currentSize = DEFAULT_SIZE
+let currentColor = DEFAULT_COLOR;
+let currentMode = DEFAULT_MODE;
+let currentSize = DEFAULT_SIZE;
 
 const grid = document.getElementById("grid");
 const sizeValue = document.getElementById("sizeValue");
@@ -15,7 +15,7 @@ const colorPicker = document.getElementById('colorPicker')
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 resetButton.onclick = () => resetGrid();
-colorPicker.oninput = (e) => setCurrentColor(e.target.value)
+colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 
 function changeSize(size) {
     currentSize = size;
