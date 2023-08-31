@@ -10,12 +10,14 @@ const grid = document.getElementById("grid");
 const sizeValue = document.getElementById("sizeValue");
 const sizeSlider = document.getElementById("sizeSlider");
 const resetButton = document.getElementById("resetButton");
+const colorPicker = document.getElementById('colorPicker')
 
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 resetButton.onclick = () => resetGrid();
+colorPicker.oninput = (e) => setCurrentColor(e.target.value)
 
-function changeSize(size) {
+function changeSize(size) {colorPicker.oninput = (e) => setCurrentColor(e.target.value)
     currentSize = size;
     updateSizeValue(size);
     reloadGrid();
@@ -39,6 +41,10 @@ function resetGrid() {
 
 function changeColour(e) {
     e.target.style.backgroundColor = currentColor;
+}
+
+function setCurrentColor(color) {
+    currentColor = color;
 }
 
 
