@@ -1,7 +1,8 @@
-const DEFAULT_COLOR = '#444';
-const DEFAULT_MODE = 'color';
+const DEFAULT_COLOR = "#444444";
+const DEFAULT_MODE = "draw";
 const DEFAULT_SIZE = 32;
 
+let canvasColor = "var(--primary-light)";
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
 let currentSize = DEFAULT_SIZE;
@@ -10,12 +11,50 @@ const grid = document.getElementById("grid");
 const sizeValue = document.getElementById("sizeValue");
 const sizeSlider = document.getElementById("sizeSlider");
 const resetButton = document.getElementById("resetButton");
-const colorPicker = document.getElementById('colorPicker')
+const colorPicker = document.getElementById("colorPicker");
+const eraseButton = document.getElementById("eraseButton");
+const drawButton = document.getElementById("drawButton");
 
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 resetButton.onclick = () => resetGrid();
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
+eraseButton.onclick = () => setCurrentMode("erase");
+drawButton.onclick = () => setCurrentMode("draw");
+
+function setCurrentMode(mode) {
+    if (currentMode === "draw") {
+        drawButton.classList.remove("active");
+    } else if (currentMode === "erase") {
+        eraseButton.classList.remove("active");
+    }
+
+    if (mode === "draw") {
+        drawButton.classList.add("active");
+    } else if (mode === "erase") {
+        eraseButton.classList.add("active");
+    }
+
+    currentMode = mode;
+}
+
+function activateButton(newMode) {
+    if (currentMode === 'rainbow') {
+      rainbowBtn.classList.remove('active')
+    } else if (currentMode === 'color') {
+      colorBtn.classList.remove('active')
+    } else if (currentMode === 'eraser') {
+      eraserBtn.classList.remove('active')
+    }
+  
+    if (newMode === 'rainbow') {
+      rainbowBtn.classList.add('active')
+    } else if (newMode === 'color') {
+      colorBtn.classList.add('active')
+    } else if (newMode === 'eraser') {
+      eraserBtn.classList.add('active')
+    }
+  }
 
 function changeSize(size) {
     currentSize = size;
@@ -28,19 +67,26 @@ function updateSizeValue(size) {
 }
 
 function reloadGrid() {
+    setCurrentMode(DEFAULT_MODE);
     grid.innerHTML = "";
     createGrid(currentSize);
 }
 
 function resetGrid() {
+    setCurrentMode(DEFAULT_MODE);
     var cells = grid.childNodes;
     for (let i = 0; i < cells.length; i++) {
-        cells[i].style.backgroundColor = "var(--primary-light)";
+        cells[i].style.backgroundColor = canvasColor;
     }
 }
 
 function changeColour(e) {
-    e.target.style.backgroundColor = currentColor;
+    if (currentMode == "draw") {
+        e.target.style.backgroundColor = currentColor;
+    } else {
+        e.target.style.backgroundColor = canvasColor;
+    }
+    
 }
 
 function setCurrentColor(color) {

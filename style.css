@@ -123,17 +123,23 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.1);
 }
 
-.round-button {
-    border: 0px;
-    background-color: transparent;
-    padding: 0px;
-    width: 32px;
-    height: 32px;
+.buttons {
+    display: flex;
+    width: 150px;
+    justify-content: space-around;
+}
+
+.buttons button {
+    flex: 1;
+}
+
+.square-button {
+    border: 0;
     font-size: 32px;
     color: var(--primary-dark);
 }
 
-.round-button:hover {
+.square-button:hover, .square-button.active {
     color: var(--secondary-dark);
 }
 

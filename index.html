@@ -19,9 +19,17 @@
             <input id="colorPicker" type="color" value="#444444">
             <div id="sizeValue" class="size-value">32 x 32</div>
             <input id="sizeSlider" type="range" value="32" min="1" max="64">
-            <button class="round-button" id="resetButton">
-                <i class="fa-solid fa-rotate-left"></i>
-            </button>
+            <section class="buttons">
+                <button class="square-button active" id="drawButton">
+                    <i class="icon fa-solid fa-pen"></i>
+                </button> 
+                <button class="square-button" id="eraseButton">
+                    <i class="icon fa-solid fa-eraser"></i>
+                </button>
+                <button class="square-button" id="resetButton">
+                    <i class="icon fa-solid fa-rotate-left"></i>
+                </button>
+            </section>
         </div>
 
         <div class="grid" id="grid"></div>
