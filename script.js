@@ -38,24 +38,6 @@ function setCurrentMode(mode) {
     currentMode = mode;
 }
 
-function activateButton(newMode) {
-    if (currentMode === 'rainbow') {
-      rainbowBtn.classList.remove('active')
-    } else if (currentMode === 'color') {
-      colorBtn.classList.remove('active')
-    } else if (currentMode === 'eraser') {
-      eraserBtn.classList.remove('active')
-    }
-  
-    if (newMode === 'rainbow') {
-      rainbowBtn.classList.add('active')
-    } else if (newMode === 'color') {
-      colorBtn.classList.add('active')
-    } else if (newMode === 'eraser') {
-      eraserBtn.classList.add('active')
-    }
-  }
-
 function changeSize(size) {
     currentSize = size;
     updateSizeValue(size);
@@ -91,6 +73,7 @@ function changeColour(e) {
 
 function setCurrentColor(color) {
     currentColor = color;
+    setCurrentMode("draw");
 }
 
 
